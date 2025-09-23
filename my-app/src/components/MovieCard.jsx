@@ -13,7 +13,7 @@ function MovieCard({ title, description, image, rating }) {
   };
   return (
     <>
-      <div className="card" style={{width: '18rem', margin:"10px"}}>
+      <div className="card" style={{ margin:"10px"}}>
         <img src={image} className="card-img-top" alt={title} />
         <div class="card-body">
           <h5 className="card-title">{title}</h5>
