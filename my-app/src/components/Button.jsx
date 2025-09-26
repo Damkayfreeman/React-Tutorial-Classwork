@@ -1,6 +1,6 @@
- const Button = ({text, color, disabled}) => {
+ const Button = ({text, bgcolor, color, disabled}) => {
     const styles = {
-        bacckgroundColor: disabled ? "lightgray" : color,
+        backgroundColor: disabled ? "lightgray" : bgcolor,
         color: "white",
         padding: "10px 10px",
         border: "none",

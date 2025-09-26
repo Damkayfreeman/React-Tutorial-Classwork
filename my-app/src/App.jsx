@@ -1,6 +1,8 @@
 import { Fragment } from "react";
 import MovieCard from "./components/MovieCard";
 import Button from "./components/Button";
+import UserForm from "./components/UserForm";
+import ShowHideText from "./components/Show-Hide";
 
 const movies = [
   {
@@ -103,6 +105,12 @@ const movies = [
 function App() {
   return (
     <>
+    <UserForm />
+
+    <br />
+
+    <ShowHideText />
+    
      <div className="container mt-8">
       <h2 className="mt-4"> Movie List</h2>
       <div className="d-flex flex-wrap">
@@ -121,15 +129,11 @@ function App() {
       </div>
      </div>
 
-      <Button text="Click Me" color="blue" />
-      <button text="Disabled Button" disabled={true} />
+       <Button text="Click Me" color="white" bgcolor="green" disabled={false} />
 
-      
+     </> 
 
 
-     
-
-    </>
   );
 }
 export default App;
