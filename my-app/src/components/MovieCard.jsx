@@ -1,11 +1,11 @@
 function MovieCard({ title, description, image, rating }) {
   let ratingClass = "";
-  if (rating > 8) {
-    ratingClass="text-success";
-  } else if (rating > 5) {
-    ratingClass="text-warning";
+  if (rating >= 8) {
+    ratingClass="text-bg-success";
+  } else if (rating >= 5) {
+    ratingClass="text-bg-warning";
   } else {
-    ratingClass="text-danger"
+    ratingClass="text-bg-danger"
   }
 
   const TrailerClick = () => {
@@ -13,14 +13,15 @@ function MovieCard({ title, description, image, rating }) {
   };
   return (
     <>
-      <div className="card" style={{ margin:"10px"}}>
+      <div className="card">
         <img src={image} className="card-img-top" alt={title} />
         <div class="card-body">
           <h5 className="card-title">{title}</h5>
           <p className="card-text">{description}</p>
-          <p className={`card-text ${ratingClass}`}>
-           <strong>{rating}/10</strong>
-            </p>
+          <p className="card-text">
+            <span className={`badge rounded-pill ${ratingClass}`}>{rating}/1</span>
+          </p>
+          
             <button className="btn btn-primary" onClick={TrailerClick}> Watch Trailer</button>
           
         </div>
