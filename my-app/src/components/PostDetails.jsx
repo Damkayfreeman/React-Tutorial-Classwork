@@ -5,6 +5,7 @@ function PostDetails() {
   const { postId } = useParams();
 
   const [post, setPost] = useState([]);
+  const [comments, setComments] = useState([]);
 
   const fetchPost = async () => {
     const response = await fetch(
@@ -14,8 +15,17 @@ function PostDetails() {
     setPost(postResponse);
   };
 
+   const fetchComments = async () => {
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/posts/${postId}/comments`
+    );
+    const commentsResponse = await response.json();
+    setComments(commentsResponse);
+  };
+
   useEffect(() => {
     fetchPost();
+    fetchComments();
   }, []);
 
   const style = {
@@ -35,7 +45,20 @@ function PostDetails() {
         </div>
       </div>
 
-      <h3> Comments</h3>
+     <div className="card" style={style}>
+        <div className="card-body">
+          <h5 className="card-title">{post.title} Comments</h5>
+           {comments.map((comment) => (
+              <div key={comment.id}>
+                <h6>{comment.name}</h6>
+                <p>{comment.body}</p>
+                <p>{comment.email}</p>
+                </div> ))
+           }
+          </div>
+      </div>
+
+  
     </>
   );
 }
